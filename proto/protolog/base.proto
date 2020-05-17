@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package protologs.proto.protolog;
+
+option go_package = "protologpb";
+option java_multiple_files = true;
+option java_outer_classname = "BaseProto";
+option java_package = "com.protologs.proto.protolog";
+
+message Context {
+    Request request = 1;
+    repeated Meta meta = 2;
+}
+
+message Request {
+    string id = 1;
+    string source = 2;
+    string rpcservice = 3;
+    string rpcpackage = 4;
+    string rpcmethod = 5;
+}
+
+message Meta {
+    string key = 1;
+
+    // Since this is non-typed, will never be indexed.
+    string value = 2;
+}
